@@ -11,9 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48472f7f-c138-46d2-b5b5-6a667258c702" name="默认的" comment="">
-      <change afterPath="$PROJECT_DIR$/Leetcode/src/Solution27.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Leetcode/src/Solution35.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Leetcode/src/Solution53.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leetcode/src/Solution53.java" beforeDir="false" afterPath="$PROJECT_DIR$/Leetcode/src/Solution53.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,17 +69,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="应用程序.Solution35" />
@@ -98,6 +85,7 @@
       <option name="presentableId" value="Default" />
       <updated>1600536533396</updated>
       <workItem from="1600536534464" duration="2841000" />
+      <workItem from="1600585892749" duration="36000" />
     </task>
     <servers />
   </component>
@@ -114,6 +102,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state width="1366" height="257" key="GridCell.Tab.0.bottom" timestamp="1600539196852">
