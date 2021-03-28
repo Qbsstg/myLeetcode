@@ -1,3 +1,5 @@
+package method;
+
 import java.util.Arrays;
 
 /**

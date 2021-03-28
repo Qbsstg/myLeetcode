@@ -1,3 +1,5 @@
+package method;
+
 public class Solution35 {
 
     private static int searchInsert(int[] nums, int target) {
