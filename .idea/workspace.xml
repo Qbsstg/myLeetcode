@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="1bb3d80e-4de0-498d-a63a-c1a033b217d1" name="默认变更列表" comment="">
-      <change afterPath="$PROJECT_DIR$/Leetcode/src/method/Solution561.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Leetcode/src/method/Solution70.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leetcode/src/method/Solution561.java" beforeDir="false" afterPath="$PROJECT_DIR$/Leetcode/src/method/Solution561.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,10 +43,10 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../idea/xxl-job" />
-    <property name="project.structure.last.edited" value="模块" />
+    <property name="project.structure.last.edited" value="项目" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -144,6 +148,8 @@
       <workItem from="1617085158895" duration="2951000" />
       <workItem from="1617092347409" duration="4613000" />
       <workItem from="1617156073813" duration="14472000" />
+      <workItem from="1617258048215" duration="187000" />
+      <workItem from="1617332858103" duration="323000" />
     </task>
     <task id="LOCAL-00001" summary="commit:122题题解">
       <created>1616749446268</created>
