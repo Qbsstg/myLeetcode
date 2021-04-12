@@ -8,7 +8,7 @@ package method;
 public class Solution605 {
 
     public static void main(String[] args) {
-        int[] nums = new int[]{0, 0, 0, 0};
+        int[] nums = new int[]{0, 0, 0, 0, 0};
         System.out.println(canPlaceFlowers(nums, 4));
     }
 
@@ -33,7 +33,7 @@ public class Solution605 {
                 n = n - s;
                 break;
             } else if (i == flowerbed.length - 1) {
-                int s = flowerbed.length % 2 == 0 ? flowerbed.length / 2 : flowerbed.length + 1 / 2;
+                int s = flowerbed.length % 2 == 0 ? flowerbed.length / 2 : (flowerbed.length + 1) / 2;
                 n = n - s;
                 if (n <= 0) {
                     return true;
