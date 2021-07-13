@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1bb3d80e-4de0-498d-a63a-c1a033b217d1" name="默认变更列表" comment="将项目修改为maven">
-      <change afterPath="$PROJECT_DIR$/Leetcode/src/method/Solution643.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leetcode/src/method/Solution643.java" beforeDir="false" afterPath="$PROJECT_DIR$/Leetcode/src/method/Solution643.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +162,8 @@
       <workItem from="1617961130363" duration="10038000" />
       <workItem from="1618218774174" duration="184000" />
       <workItem from="1618218974999" duration="1572000" />
-      <workItem from="1618304480714" duration="3950000" />
+      <workItem from="1618304480714" duration="4277000" />
+      <workItem from="1618537638575" duration="64000" />
     </task>
     <task id="LOCAL-00001" summary="commit:122题题解">
       <created>1616749446268</created>
@@ -255,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618220508211</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="643题题解提交">
+      <created>1618309202837</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1618309202837</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,7 +291,8 @@
     <MESSAGE value="将项目修改为maven" />
     <MESSAGE value="605题题解提交" />
     <MESSAGE value="628题题解提交" />
-    <option name="LAST_COMMIT_MESSAGE" value="628题题解提交" />
+    <MESSAGE value="643题题解提交" />
+    <option name="LAST_COMMIT_MESSAGE" value="643题题解提交" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -307,11 +316,6 @@
           <url>file://$PROJECT_DIR$/Leetcode/src/method/Solution605.java</url>
           <line>60</line>
           <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Leetcode/src/method/Solution643.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
