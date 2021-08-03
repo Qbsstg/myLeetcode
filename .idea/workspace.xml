@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1bb3d80e-4de0-498d-a63a-c1a033b217d1" name="默认变更列表" comment="将项目修改为maven">
+      <change afterPath="$PROJECT_DIR$/Leetcode/src/method/Solution4.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Leetcode/src/method/Solution643.java" beforeDir="false" afterPath="$PROJECT_DIR$/Leetcode/src/method/Solution643.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +22,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1qHvZvprTTxFta9xatbUQ6KgP3A" />
   <component name="ProjectLevelVcsManager">
@@ -45,16 +53,31 @@
     <property name="project.structure.last.edited" value="项目" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.Solution643">
-    <configuration name="Solution561" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="method.Solution561" />
+  <component name="RunManager" selected="应用程序.Solution4">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solution4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="method.Solution4" />
       <module name="myLeetcode" />
       <extension name="coverage">
         <pattern>
@@ -118,26 +141,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="应用程序.Solution4" />
         <item itemvalue="应用程序.Solution643" />
         <item itemvalue="应用程序.Solution628" />
         <item itemvalue="应用程序.Solution605" />
         <item itemvalue="应用程序.Solution566" />
-        <item itemvalue="应用程序.Solution561" />
       </list>
     </recent_temporary>
   </component>
@@ -164,6 +174,9 @@
       <workItem from="1618218974999" duration="1572000" />
       <workItem from="1618304480714" duration="4277000" />
       <workItem from="1618537638575" duration="64000" />
+      <workItem from="1626167182851" duration="2534000" />
+      <workItem from="1627890660385" duration="9309000" />
+      <workItem from="1627954842562" duration="782000" />
     </task>
     <task id="LOCAL-00001" summary="commit:122题题解">
       <created>1616749446268</created>
@@ -263,7 +276,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618309202837</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="将项目修改为maven">
+      <created>1626167297249</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1626167297249</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,11 +308,11 @@
     <MESSAGE value="commit:485题题解提交" />
     <MESSAGE value="commit:509题题解提交" />
     <MESSAGE value="提交566题解" />
-    <MESSAGE value="将项目修改为maven" />
     <MESSAGE value="605题题解提交" />
     <MESSAGE value="628题题解提交" />
     <MESSAGE value="643题题解提交" />
-    <option name="LAST_COMMIT_MESSAGE" value="643题题解提交" />
+    <MESSAGE value="将项目修改为maven" />
+    <option name="LAST_COMMIT_MESSAGE" value="将项目修改为maven" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -316,6 +336,11 @@
           <url>file://$PROJECT_DIR$/Leetcode/src/method/Solution605.java</url>
           <line>60</line>
           <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Leetcode/src/method/Solution4.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
