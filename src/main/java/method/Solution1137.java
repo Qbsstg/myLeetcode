@@ -46,6 +46,12 @@ public class Solution1137 {
         int c = 1;
 
         int d = 0;
+        if (n == 0 || n == 1) {
+            return n;
+        }
+        if (n == 2) {
+            return 1;
+        }
 
         for (int i = 3; i <= n; i++) {
             d = a + b + c;
