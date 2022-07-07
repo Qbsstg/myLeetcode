@@ -24,8 +24,9 @@ public class Solution1175 {
         //System.out.println(divide);
         //factBigDecimal(3);
         //factBigDecimal(2);
-        System.out.println(numPrimeArrangements(5));
+        //System.out.println(numPrimeArrangements(5));
 
+        System.out.println(factBigDecimal(9));
 
         //System.out.println(list.size());
 
