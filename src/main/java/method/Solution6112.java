@@ -1,10 +1,12 @@
 package method;
 
+import java.util.Arrays;
+
 public class Solution6112 {
 
     public static void main(String[] args) {
         int[] amount = {5, 4, 4};
-        System.out.println(fillCups(amount));
+        System.out.println(fillCups1(amount));
     }
 
     public static int fillCups(int[] amount) {
@@ -22,6 +24,18 @@ public class Solution6112 {
         }
         return count;
     }
+
+    public static int fillCups1(int[] amount) {
+        int count = 0;
+        while (amount[0] + amount[1] + amount[2] > 0) {
+            Arrays.sort(amount);
+            amount[2]--;
+            if (amount[0] > 0) amount[0]--;
+            count++;
+        }
+        return count;
+    }
+
 
     public static int maxIndex(int a, int b, int c) {
         if (a >= b && a >= c) {

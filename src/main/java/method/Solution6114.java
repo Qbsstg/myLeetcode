@@ -3,57 +3,29 @@ package method;
 public class Solution6114 {
 
     public static void main(String[] args) {
-        String start = "_L__R__R_";
-        String targe = "L______RR";
+        String start = "_LL__R__R_";
+        String targe = "L___L___RR";
         System.out.println(canChange(start, targe));
     }
 
     public static boolean canChange(String start, String target) {
         String[] startSplit = start.split("");
-        String[] targetSplit = target.split("");
 
-        int j = 0;
-        for (int i = 0; i < startSplit.length; i++) {
-            String s = startSplit[i];
-            if (s.equals("R")) {
-                while (j < targetSplit.length) {
-                    String t = targetSplit[j];
-                    if (t.equals(s)) {
-                        if (!moveRight(startSplit, i, j)) {
-                            return false;
-                        }else {
-                            j++;
-                            break;
-                        }
-                    } else if (t.equals("_")) {
-                        j++;
-                    } else {
-                        return false;
-                    }
-                }
-            } else if (s.equals("L")) {
-                while (j < targetSplit.length) {
-                    String t = targetSplit[j];
-                    if (t.equals(s)) {
-                        if (!moveLeft(startSplit, i, j)) {
-                            return false;
-                        }else {
-                            j++;
-                            break;
-                        }
-                    } else if (t.equals("_")) {
-                        j++;
-                    } else {
-                        return false;
-                    }
-                }
-                if (j == targetSplit.length){
-                    return false;
-                }
-            }
+        int startL = start.lastIndexOf("L");
+        int startR = start.indexOf("R");
 
+        int targetL = target.lastIndexOf("L");
+        int targetR = target.indexOf("R");
+
+        String startReplace = start.replace("_", "");
+        String targetReplace = target.replace("_", "");
+
+        if (!startReplace.equals(targetReplace)) {
+            return false;
         }
-        return true;
+
+        return moveLeft(startSplit, startL, targetL) && moveRight(startSplit, startR, targetR);
+
     }
 
     public static boolean moveLeft(String[] startSplit, int start, int end) {
