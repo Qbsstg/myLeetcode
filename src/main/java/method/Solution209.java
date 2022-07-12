@@ -1,5 +1,6 @@
 package method;
 
+import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,29 +21,31 @@ public class Solution209 {
      * */
     public int minSubArrayLen(int target, int[] nums) {
 
-        int sum = 0;
         int count = 0;
+        int sum = 0;
         Map<Integer, Integer> map = new HashMap<>();
 
+        for (int i = 0; i < nums.length; i++) {
 
-        for (int num : nums) {
-
-            sum += num;
+            sum += nums[i];
             int sumJ = sum - target;
             if (map.containsKey(sumJ)) {
-                count = count + map.get(sumJ);
+                count = count == 0 ? map.get(sumJ) : Math.min(count, map.get(sumJ));
             }
             if (sum == target) {
-                count++;
+                count = count == 0 ? i + 1 : Math.min(count, i + 1);
             }
             if (map.containsKey(sum)) {
-                map.put(sum, map.get(sum) + 1);
+                Integer integer = map.get(sum);
+                if (i + 1 < integer) {
+                    map.put(sum, i + 1);
+                }
             } else {
-                map.put(sum, 1);
+                map.put(sum, i + 1);
             }
+
         }
         return count;
-
 
     }
 
