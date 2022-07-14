@@ -15,8 +15,6 @@ public class Solution1 {
                     reNums[0] = i;
                     reNums[1] = j;
                     break;
-                }else {
-                    continue;
                 }
             }
         }
