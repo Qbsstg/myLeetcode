@@ -2,6 +2,8 @@ package method;
 
 import common.ListNode;
 
+import java.util.Stack;
+
 /**
  * @author Qbss
  * @date 2022/7/15
@@ -28,6 +30,34 @@ public class Solution19 {
             slow = slow.getNext();
         }
         slow.setNext(slow.getNext().getNext());
+        return head;
+    }
+
+    public ListNode removeNthFromEnd1(ListNode head, int n) {
+
+        Stack<ListNode> stack = new Stack<>();
+        ListNode node = head;
+        while (true) {
+            stack.add(node);
+            if (node.getNext() == null) {
+                break;
+            }
+            node = node.getNext();
+        }
+
+        ListNode pre = null;
+        while (n != 0) {
+            pre = stack.pop();
+            n--;
+        }
+        if (stack.isEmpty()){
+            return null;
+        }
+        if (pre == null){
+            stack.peek().setNext(null);
+        }else {
+            stack.peek().setNext(pre.getNext());
+        }
         return head;
     }
 

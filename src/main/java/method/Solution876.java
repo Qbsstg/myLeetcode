@@ -104,7 +104,7 @@ public class Solution876 {
         while ((line = in.readLine()) != null) {
             ListNode head = stringToListNode(line);
 
-            ListNode ret = new Solution19().removeNthFromEnd(head,1);
+            ListNode ret = new Solution19().removeNthFromEnd1(head,1);
 
             String out = listNodeToString(ret);
 
