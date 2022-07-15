@@ -14,11 +14,11 @@ public class Solution208 {
 
     public static void main(String[] args) {
         Trie trie = new Trie();
-        trie.insert("apple");
+        trie.insert1("apple");
         System.out.println(trie.search("apple"));
         System.out.println(trie.search("app"));
         System.out.println(trie.startsWith("app"));
-        trie.insert("app");
+        trie.insert1("app");
         System.out.println(trie.search("app"));
     }
 
@@ -33,6 +33,19 @@ public class Solution208 {
 
         public void insert(String word) {
             insertTrie(word.split(""), 0, this.trieNode);
+        }
+
+        public void insert1(String word) {
+            String[] split = word.split("");
+            TrieNode node = this.trieNode;
+            for (String s : split) {
+                if (node.getChildren().containsKey(s)) {
+                    node = node.getChildren().get(s);
+                } else {
+                    node.getChildren().put(s, new TrieNode(s));
+                }
+            }
+            node.setEndValue(word);
         }
 
         public boolean search(String word) {
@@ -58,6 +71,8 @@ public class Solution208 {
                 }
                 index++;
                 insertTrie(split, index, trieNode.getChildren().get(key));
+            } else if (index == split.length) {
+                trieNode.setEndValue(String.join("", split));
             }
         }
 
