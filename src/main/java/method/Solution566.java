@@ -28,9 +28,9 @@ public class Solution566 {
             return nums;
         } else {
             List<Integer> temp = new ArrayList<>();
-            for (int i = 0; i < high; i++) {
+            for (int[] num : nums) {
                 for (int j = 0; j < length; j++) {
-                    int a = nums[i][j];
+                    int a = num[j];
                     temp.add(a);
                 }
             }
