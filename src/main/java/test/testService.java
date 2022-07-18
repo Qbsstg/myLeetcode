@@ -100,6 +100,7 @@ public class testService {
         TrieNode trieNode1 = getTrieNode(split1, trieNode);
         System.out.println(trieNode);
         System.out.println(trieNode1);
+
     }
 
 }
