@@ -8,10 +8,10 @@ package common;
 public class ListNode {
 
 
-    int val;
-    ListNode next;
+    public int val;
+    public ListNode next;
 
-    ListNode() {
+    public ListNode() {
     }
 
     public ListNode(int val) {

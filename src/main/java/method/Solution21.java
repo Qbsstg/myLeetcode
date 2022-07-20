@@ -1,47 +1,41 @@
 package method;
 
+import common.ListNode;
+
+/**
+ * @author Qbss
+ * @date 2022/7/20
+ * @desc
+ */
 public class Solution21 {
 
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
 
-    public static int removeDuplicates(int[] nums){
-        if (nums.length <= 0){
-            return 0;
-        }
-        int e = nums[0];
-        int len = nums.length;
-        for (int i = 1; i < len; i++) {
-            if (e == nums[i]){
-                removeTarget(nums,i);
-                len --;
-                i--;
-            }else {
-                e = nums[i];
-            }
-
-        }
-        return len;
+        ListNode node = new ListNode();
+        deal(node, list1, list2);
+        return node.next;
     }
 
-    /**
-     * 删除数组中下标为i的元素
-     * @param nums
-     * @param i
-     * @return
-     */
-    static int[] removeTarget(int[] nums,int i){
-        if(i<1||i>nums.length){
-            return nums;
-        }
-        for (int j = i; j < nums.length-1; j++) {
-            nums[j] = nums[j+1];
-        }
-        return nums;
-    }
+    private void deal(ListNode node, ListNode list1, ListNode list2) {
 
+        if (list1 == null) {
+            node.next = list2;
+            return;
+        }
+        if (list2 == null) {
+            node.next = list1;
+            return;
+        }
 
-    public static void main(String[] args) {
-        int[] nums = {};
-        System.out.println(removeDuplicates(nums));
+        int val1 = list1.val;
+        int val2 = list2.val;
+        if (val2 >= val1) {
+            node.next = list1;
+            deal(node.next, list1.next, list2);
+        } else {
+            node.next = list2;
+            deal(node.next, list1, list2.next);
+        }
     }
 
 }
