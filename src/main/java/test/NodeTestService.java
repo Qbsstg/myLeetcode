@@ -1,51 +1,21 @@
-package method;
+package test;
 
 import common.Node;
+import method.Solution919;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
-public class Solution116 {
+/**
+ * @author Qbss
+ * @date 2022/7/25
+ * @desc
+ */
+public class NodeTestService {
 
-    public Node connect(Node root) {
-
-        if (root == null){
-            return new Node();
-        }
-        List<Node> list = new ArrayList<>();
-        Queue<Node> queue = new LinkedList<>();
-        queue.offer(root);
-        while (!queue.isEmpty()) {
-            Node poll = queue.poll();
-            list.add(poll);
-            if (poll.left != null && poll.right != null) {
-                queue.offer(poll.left);
-                queue.offer(poll.right);
-            }
-        }
-
-        int start = 0;
-        for (int i = 1; i < list.size() && start < list.size(); i++) {
-            start = (int) Math.pow(2.0, i) - 1;
-            int j = (int) Math.pow(2.0, i);
-            if (j + start - 1 >= list.size()) {
-                break;
-            }
-            Node node = null;
-            while (j > 0) {
-                Node node1 = list.get(j + start - 1);
-                node1.next = node;
-                node = node1;
-                j--;
-            }
-        }
-        return root;
-    }
 
     public static Node stringToNode(String input) {
         input = input.trim();
@@ -120,7 +90,7 @@ public class Solution116 {
         while ((line = in.readLine()) != null) {
             Node root = stringToNode(line);
 
-            Node ret = new Solution116().connect(root);
+            Node ret = new Solution919().test(root);
 
             String out = NodeToString(ret);
 
