@@ -1,7 +1,9 @@
 package method;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Solution6130 {
 
@@ -38,26 +40,24 @@ public class Solution6130 {
                 if (indexs.size() == 0){
                     this.valueToIndexs.remove(value);
                 }
+                TreeSet<Integer> integers;
                 if (this.valueToIndexs.containsKey(number)){
-                    TreeSet<Integer> integers = this.valueToIndexs.get(number);
-                    integers.add(index);
-                    this.valueToIndexs.put(number,integers);
+                    integers = this.valueToIndexs.get(number);
                 }else {
-                    TreeSet<Integer> integers = new TreeSet<>();
-                    integers.add(index);
-                    this.valueToIndexs.put(number,integers);
+                    integers = new TreeSet<>();
                 }
+                integers.add(index);
+                this.valueToIndexs.put(number,integers);
             } else {
                 this.indexToValue.put(index, number);
+                TreeSet<Integer> list;
                 if (this.valueToIndexs.containsKey(number)) {
-                    TreeSet<Integer> list = this.valueToIndexs.get(number);
-                    list.add(index);
-                    this.valueToIndexs.put(number, list);
+                    list = this.valueToIndexs.get(number);
                 } else {
-                    TreeSet<Integer> list = new TreeSet<>();
-                    list.add(index);
-                    this.valueToIndexs.put(number, list);
+                    list = new TreeSet<>();
                 }
+                list.add(index);
+                this.valueToIndexs.put(number, list);
             }
         }
 
