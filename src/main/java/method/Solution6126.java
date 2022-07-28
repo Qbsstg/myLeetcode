@@ -1,8 +1,8 @@
 package method;
 
-import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeSet;
 
 public class Solution6126 {
 
@@ -17,8 +17,6 @@ public class Solution6126 {
         System.out.println(foodRatings.highestRated("japanese"));
         foodRatings.changeRating("ramen", 16);
         System.out.println(foodRatings.highestRated("japanese"));
-
-
     }
 
     static class FoodRatings {
@@ -53,16 +51,18 @@ public class Solution6126 {
                     return Integer.compare(o1.rating, o2.rating) * -1;
                 }));
                 orDefault.add(foodInfo);
-                this.foodInfoMap.put(cuisine,orDefault);
-                this.foodName.put(food,foodInfo);
+                this.foodInfoMap.put(cuisine, orDefault);
+                this.foodName.put(food, foodInfo);
             }
         }
 
         public void changeRating(String food, int newRating) {
             foodInfo foodInfo = this.foodName.get(food);
-            foodInfo.rating = newRating;
             String cuisine = foodInfo.cuisine;
-            this.foodInfoMap.get(cuisine).stream().filter(x->x.name.equals(food)).findFirst().get().rating = newRating;
+            this.foodInfoMap.get(cuisine).remove(foodInfo);
+            foodInfo.rating = newRating;
+            this.foodInfoMap.get(cuisine).add(foodInfo);
+
         }
 
         public String highestRated(String cuisine) {
