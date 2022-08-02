@@ -1,5 +1,7 @@
 package method;
 
+import java.util.Arrays;
+
 public class Solution53 {
 
     /*
@@ -18,7 +20,7 @@ public class Solution53 {
     著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
      */
 
-    public int maxSubArray(int  [] nums) {
+    public int maxSubArray(int[] nums) {
 
         int max = nums[0];
         for (int i = 0; i < nums.length; i++) {
@@ -41,11 +43,24 @@ public class Solution53 {
         return max;
     }
 
+    public int maxSubArray1(int[] nums) {
+
+        int length = nums.length;
+        int[] sum = new int[length];
+        sum[0] = nums[0];
+
+        for (int i = 1; i < length; i++) {
+            sum[i] = Math.max(nums[i], sum[i - 1] + nums[i]);
+        }
+        Arrays.sort(sum);
+        return sum[length - 1];
+    }
+
 
     public static void main(String[] args) {
         Solution53 Solution53 = new Solution53();
         int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-        System.out.println(Solution53.maxSubArray(nums));
+        System.out.println(Solution53.maxSubArray1(nums));
     }
 
 }
