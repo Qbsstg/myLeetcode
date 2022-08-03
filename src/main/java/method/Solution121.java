@@ -11,7 +11,7 @@ public class Solution121 {
     public static void main(String[] args) {
 
         int[] ints = new int[]{7, 1, 5, 3, 6, 4};
-        System.out.println(maxProfit(ints));
+        System.out.println(maxProfit1(ints));
 
 
     }
@@ -33,6 +33,21 @@ public class Solution121 {
 
         }
         return length;
+    }
+
+    public static int maxProfit1(int[] prices) {
+        int[] res = new int[prices.length];
+        res[0] = 0;
+        int min = prices[0];
+
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] < min) {
+                min = prices[i];
+            }
+            res[i] = Math.max(res[i - 1], prices[i] - min);
+        }
+
+        return res[prices.length-1];
     }
 
 
