@@ -1,8 +1,7 @@
 package test;
 
 import common.Node;
-import method.Solution1161;
-import method.Solution919;
+import method.Solution623;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -91,11 +90,11 @@ public class NodeTestService {
         while ((line = in.readLine()) != null) {
             Node root = stringToNode(line);
 
-            int ret = new Solution1161().maxLevelSum(root);
+            Node ret = new Solution623().addOneRow(root,5,4);
 
-            //String out = NodeToString(ret);
+            String out = NodeToString(ret);
 
-            System.out.print(ret);
+            System.out.print(out);
         }
     }
 
