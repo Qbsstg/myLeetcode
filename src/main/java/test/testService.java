@@ -2,7 +2,8 @@ package test;
 
 import common.TrieNode;
 
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author Qbss
@@ -75,7 +76,7 @@ public class testService {
         checkTemp.add(true);
     }
 
-    private static TrieNode getTrieNode( String[] split, TrieNode trieNode) {
+    private static TrieNode getTrieNode(String[] split, TrieNode trieNode) {
         for (String s : split) {
             if (trieNode.getChildren().containsKey(s)) {
                 trieNode = trieNode.getChildren().get(s);
@@ -87,10 +88,34 @@ public class testService {
     }
 
 
+    public List<String> stringMatching(String[] words) {
+
+        List<String> res = new ArrayList<>();
+        boolean[] used = new boolean[words.length];
+        for (int i = 0; i < words.length; i++) {
+            if (!used[i]) {
+                for (int j = 0; j < words.length; j++) {
+                    if (j == i) {
+                        continue;
+                    } else {
+                        if (!used[j]) {
+                            if (words[i].contains(words[j])) {
+                                used[j] = true;
+                                res.add(words[j]);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return res;
+    }
+
+
     public static void main(String[] args) {
 
         String[] split = {"g", "o", "e"};
-        String[] split1 = {"g","o","e","f"};
+        String[] split1 = {"g", "o", "e", "f"};
 
 
         TrieNode trieNode = new TrieNode();

@@ -7,6 +7,9 @@ public class Solution3391 {
    int[] nums = {31,28,31,30,31,30,31,31,30,31,30,31};
 
     public static void main(String[] args) {
+
+
+
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNext()) {
             int a = scanner.nextInt();
