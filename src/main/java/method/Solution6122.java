@@ -1,6 +1,6 @@
 package method;
 
-import java.util.Arrays;
+import java.util.*;
 
 /**
  * @author Qbss
@@ -11,13 +11,53 @@ public class Solution6122 {
 
 
     public static void main(String[] args) {
+        Object o = new Object();
 
         int[] nums = {2, 3, 2, 4, 3};
         //int[] nums = {2,3,2,4,3};
         int[] numsDivide = {9, 6, 9, 3, 15};
         //int[] numsDivide = {9, 6, 9, 3, 11};
 
-        System.out.println(minOperations(nums, numsDivide));
+        //System.out.println(minOperations(nums, numsDivide));
+
+        checkDepth("[1,[2,3],[1,4,[5]]]");
+    }
+
+
+
+    class Main {
+        public void checkDepth(String str) {
+            String[] split = str.split("");
+            int depth = 0;
+            int max = 0;
+
+            for (String s : split) {
+                if (s.equals("[")) {
+                    depth++;
+                    max = Math.max(max, depth);
+                } else if (s.equals("]")) {
+                    depth--;
+                }
+            }
+            System.out.println(max);
+        }
+    }
+
+
+    private static void checkDepth(String str) {
+        String[] split = str.split("");
+
+        int depth = 0;
+        int max = 0;
+        for (String s : split) {
+            if (s.equals("[")) {
+                depth++;
+                max = Math.max(depth, max);
+            } else if (s.equals("]")) {
+                depth--;
+            }
+        }
+        System.out.println(max);
     }
 
     public static int minOperations(int[] nums, int[] numsDivide) {
