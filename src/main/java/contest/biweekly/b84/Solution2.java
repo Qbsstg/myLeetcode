@@ -1,14 +1,9 @@
-package linshi;
+package contest.biweekly.b84;
 
-import java.util.*;
-
-public class Solution_linshi2 {
+public class Solution2 {
 
     public static void main(String[] args) {
         int[] nums = {4, 1, 3, 3};
-        //countBadPairs(nums);
-        //System.out.println(count1(new int[]{4, 1, 3, 3,}));
-        //System.out.println(count1(new int[]{1, 2, 3, 4, 5}));
         System.out.println(add(100));
     }
 
@@ -24,8 +19,6 @@ public class Solution_linshi2 {
         }
         return count;
     }
-
-    public static long count1(int[] nums)  
 
 
     private static int add(int l) {

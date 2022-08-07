@@ -1,12 +1,11 @@
-package linshi;
+package contest.biweekly.b84;
 
-import javax.naming.spi.ObjectFactory;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class Solution_linshi3 {
+public class Solution3 {
 
     public static void main(String[] args) {
         System.out.println(taskSchedulerII(new int[]{1, 2, 1, 2, 3, 1}, 3));

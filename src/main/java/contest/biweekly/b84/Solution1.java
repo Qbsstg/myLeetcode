@@ -1,8 +1,8 @@
-package linshi;
+package contest.biweekly.b84;
 
 import java.util.*;
 
-public class Solution_linshi1 {
+public class Solution1 {
 
     public List<List<Integer>> mergeSimilarItems(int[][] items1, int[][] items2) {
         Map<Integer, Integer> map1 = new TreeMap<>();
