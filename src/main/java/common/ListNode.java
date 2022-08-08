@@ -35,6 +35,10 @@ public class ListNode {
                 '}';
     }
 
+    public static void doS(){
+
+    }
+
     public void setVal(int val) {
         this.val = val;
     }
