@@ -1,7 +1,7 @@
 package test;
 
 import common.Node;
-import method.Solution623;
+import method.Solution101;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -90,11 +90,11 @@ public class NodeTestService {
         while ((line = in.readLine()) != null) {
             Node root = stringToNode(line);
 
-            Node ret = new Solution623().addOneRow(root,5,4);
+            new Solution101().isSymmetric(root);
 
-            String out = NodeToString(ret);
+            //String out = NodeToString(ret);
 
-            System.out.print(out);
+            System.out.print("out");
         }
     }
 
