@@ -1,7 +1,7 @@
 package test;
 
 import common.Node;
-import method.Solution700;
+import method.Solution653;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -90,11 +90,11 @@ public class NodeTestService {
         while ((line = in.readLine()) != null) {
             Node root = stringToNode(line);
 
-            Node node = new Solution700().searchBST(root, 2);
+            new Solution653().findTarget(root,-4);
 
-            String out = NodeToString(node);
+            //String out = NodeToString(node);
 
-            System.out.print(out);
+            System.out.print("out");
         }
     }
 
