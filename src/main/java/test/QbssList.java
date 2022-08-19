@@ -3,6 +3,7 @@ package test;
 import java.util.AbstractList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Objects;
 
 /**
  * @author Qbss
@@ -129,6 +130,119 @@ public class QbssList<E> extends AbstractList<E> {
         elementData[size] = e;
         size += 1;
         return true;
+    }
+
+
+    private void rangeCheckForAdd(int index) {
+        if (index > size || index < 0) {
+            throw new IndexOutOfBoundsException("数组越界");
+        }
+    }
+
+    public void add(int index, E element) {
+        rangeCheckForAdd(index);
+
+        final int s;
+        Object[] elementData;
+        //数组空间已经满了，扩容
+        if ((s = size) == (elementData = this.elementData).length) {
+            elementData = grow();
+        }
+        System.arraycopy(elementData, index, elementData, index + 1, s - index);
+        elementData[index] = element;
+        size = s + 1;
+    }
+
+    public E remove(int index) {
+        Objects.checkIndex(index, size);
+        final Object[] es = elementData;
+
+        E oldValue = (E) es[index];
+        fastRemove(es, index);
+        return oldValue;
+    }
+
+    public boolean remove(Object o) {
+        final Object[] es = elementData;
+        final int size = this.size;
+        int i = 0;
+        found:
+        {
+            if (o == null) {
+                for (; i < size; i++) {
+                    if (es[i] == null) {
+                        break found;
+                    }
+                }
+            } else {
+                for (; i < size; i++) {
+                    if (es[i].equals(o)) {
+                        break found;
+                    }
+                }
+            }
+            return false;
+        }
+
+        fastRemove(es, i);
+        return true;
+    }
+
+    private void fastRemove(Object[] es, int i) {
+        final int newSize;
+        if ((newSize = size - 1) > i) {
+            System.arraycopy(es, i + 1, es, i, newSize - i);
+        }
+        es[size = newSize] = null;
+    }
+
+    public void clear() {
+        final Object[] es = elementData;
+        for (int to = size, i = size = 0; i < to; i++) {
+            es[i] = null;
+        }
+    }
+
+    public boolean addAll(Collection<? extends E> c) {
+        Object[] a = c.toArray();
+        int numNew = a.length;
+        if (numNew == 0) {
+            return false;
+        }
+        Object[] elementData;
+        final int s;
+        //如果要添加的集合长度大于数组空余的长度，扩容
+        if (numNew > (elementData = this.elementData).length - (s = size)) {
+            elementData = grow(s + numNew);
+        }
+        System.arraycopy(a, 0, elementData, s, numNew);
+        size = s + numNew;
+        return true;
+    }
+
+    public boolean addAll(int index, Collection<? extends E> c) {
+        rangeCheckForAdd(index);
+
+        Object[] a = c.toArray();
+        int numNew = a.length;
+        if (numNew == 0) {
+            return false;
+        }
+
+        Object[] elementData;
+        final int s;
+        if (numNew > (elementData = this.elementData).length - (s = size)) {
+            elementData = grow(s + numNew);
+        }
+
+        int numMoved = s - index;
+        if (numMoved > 0) {
+            System.arraycopy(elementData, index, elementData, index + numNew, numMoved);
+        }
+        System.arraycopy(a, 0, elementData, index, numNew);
+        size = s + numNew;
+        return true;
+
     }
 
     @Override
