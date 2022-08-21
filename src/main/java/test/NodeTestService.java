@@ -1,11 +1,9 @@
 package test;
 
 import common.Node;
-import method.Solution653;
+import contest.weekly.w307.Solution3;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -85,17 +83,21 @@ public class NodeTestService {
     }
 
     public static void main(String[] args) throws IOException {
-        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        String line;
-        while ((line = in.readLine()) != null) {
-            Node root = stringToNode(line);
+        //BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        //String line;
+        //while ((line = in.readLine()) != null) {
 
-            new Solution653().findTarget(root,-4);
+        String line = "[1,5,3,null,4,10,6,9,2]";
+        String line1 = "[1,2,null,3,null,4,null,5]";
+        String line2= "[1,null,2,3,4,null,5]";
+        Node root = stringToNode(line2);
 
-            //String out = NodeToString(node);
+        System.out.println(new Solution3().amountOfTime(root, 4));
 
-            System.out.print("out");
-        }
+        //String out = NodeToString(node);
+
+        System.out.print("out");
+        //}
     }
 
 }
