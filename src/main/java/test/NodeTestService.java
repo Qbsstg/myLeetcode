@@ -1,7 +1,7 @@
 package test;
 
 import common.Node;
-import contest.weekly.w307.Solution3;
+import method.Solution655;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -89,10 +89,11 @@ public class NodeTestService {
 
         String line = "[1,5,3,null,4,10,6,9,2]";
         String line1 = "[1,2,null,3,null,4,null,5]";
-        String line2= "[1,null,2,3,4,null,5]";
-        Node root = stringToNode(line2);
+        String line2 = "[1,null,2,3,4,null,5]";
+        String line3 = "[1,2,3,null,4]";
+        Node root = stringToNode(line3);
 
-        System.out.println(new Solution3().amountOfTime(root, 4));
+        System.out.println(new Solution655().printTree(root));
 
         //String out = NodeToString(node);
 
