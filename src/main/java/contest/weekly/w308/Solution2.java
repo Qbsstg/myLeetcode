@@ -13,12 +13,11 @@ public class Solution2 {
         char[] chars = s.toCharArray();
 
         Deque<Character> deque = new ArrayDeque<>();
-        for (int i = 0; i < chars.length; i++) {
-            char aChar = chars[i];
-            if (aChar != '*'){
+        for (char aChar : chars) {
+            if (aChar != '*') {
                 deque.offer(aChar);
-            }else {
-                if (!deque.isEmpty()){
+            } else {
+                if (!deque.isEmpty()) {
                     deque.pollLast();
                 }
             }

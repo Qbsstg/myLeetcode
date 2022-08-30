@@ -54,12 +54,13 @@ public class Solution654 {
 
     public static void main(String[] args) {
         int[] nums = {1, 2, 3, 4, 5, 6};
-        int[] nums1 = {3,2,1,6,0,5};
+        int[] nums1 = {3, 2, 1, 6, 0, 5};
         int[] info = {2, 3};
 
         int[][] res = splitNums(nums, info);
         System.out.println(Arrays.deepToString(res));
         System.out.println(constructMaximumBinaryTree(nums1));
+        System.out.println(constructMaximumBinaryTree(new int[]{1, 4, 2, 3, 5}));
     }
 
 }

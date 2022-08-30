@@ -1,7 +1,7 @@
 package test;
 
 import common.Node;
-import method.Solution662;
+import method.Solution998;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -91,13 +91,14 @@ public class NodeTestService {
         String line1 = "[1,2,null,3,null,4,null,5]";
         String line2 = "[1,null,2,3,4,null,5]";
         String line3 = "[1,3,2,5,null,null,9,6,null,7]";
-        Node root = stringToNode(line3);
+        String line5 = "[5,2,4,null,1]";
+        Node root = stringToNode(line5);
 
-        System.out.println(new Solution662().widthOfBinaryTree(root));
+        //System.out.println(new Solution998().insertIntoMaxTree(root,3));
 
-        //String out = NodeToString(node);
+        System.out.println(NodeToString(new Solution998().insertIntoMaxTree(root, 3)));
 
-        System.out.print("out");
+
         //}
     }
 
