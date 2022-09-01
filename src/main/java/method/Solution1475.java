@@ -15,6 +15,7 @@ public class Solution1475 {
         System.out.println(Arrays.toString(finalPrices(new int[]{8, 4, 6, 2, 3})));
         System.out.println(Arrays.toString(finalPrices(new int[]{1, 2, 3, 4, 5})));
         System.out.println(Arrays.toString(finalPrices(new int[]{10, 1, 1, 6})));
+        System.out.println(Arrays.toString(finalPrices(new int[]{8, 7, 4, 2, 8, 1, 7, 7, 10, 1})));
     }
 
 
@@ -32,17 +33,25 @@ public class Solution1475 {
             if (deque.isEmpty()) {
                 deque.offer(i);
             } else {
-
-                while (!deque.isEmpty()) {
+                while (!deque.isEmpty()){
                     Integer peekFirst = deque.peekFirst();
+                    Integer peekLast = deque.peekLast();
+
                     if (price <= prices[peekFirst]) {
                         res[peekFirst] = res[peekFirst] - price;
                         deque.pollFirst();
                     } else {
-                        break;
+                        if (price <= prices[peekLast]) {
+                            res[peekLast] = res[peekLast] - price;
+                            deque.pollLast();
+                        }else {
+                            break;
+                        }
                     }
                 }
+
                 deque.offer(i);
+
             }
         }
         return res;
