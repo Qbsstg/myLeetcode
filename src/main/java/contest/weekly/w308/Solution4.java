@@ -32,10 +32,6 @@ public class Solution4 {
                 res[i][j] = 0;
             }
         }
-
-
-
-
         return null;
     }
 
