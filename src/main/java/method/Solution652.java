@@ -1,6 +1,8 @@
 package method;
 
 import common.Node;
+import org.apache.commons.lang3.tuple.MutablePair;
+import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.*;
 
@@ -14,8 +16,8 @@ public class Solution652 {
     }
 
     public List<Node> findDuplicateSubtrees(Node root) {
-        Map<String, Integer> stringIntegerHashMap = new HashMap<>();
-        List<Node> res = new ArrayList<>();
+        Map<String, Node> stringIntegerHashMap = new HashMap<>();
+        Set<Node> res = new HashSet<>();
 
         if (root.left == null && root.right == null) {
             return new ArrayList<>();
@@ -34,20 +36,16 @@ public class Solution652 {
             if (poll != null) {
 
                 String key = NodeToString(poll);
-                Integer integer = stringIntegerHashMap.get(key);
-                if (integer == null) {
-                    stringIntegerHashMap.put(key, 1);
+                if (stringIntegerHashMap.containsKey(key)) {
+                    res.add(poll);
                 } else {
-                    if (integer == 1) {
-                        stringIntegerHashMap.put(key, 2);
-                        res.add(poll);
-                    }
+                    stringIntegerHashMap.put(key, poll);
                 }
                 deque.offer(poll.left);
                 deque.offer(poll.right);
             }
         }
-        return res;
+        return new ArrayList<>(set);
     }
 
     private String NodeToString(Node root) {
@@ -76,6 +74,51 @@ public class Solution652 {
             }
         }
         return res.substring(0, res.length() - 1);
+    }
+
+    private Map<String, Node> map = new HashMap<>();
+    private Set<Node> set = new HashSet<>();
+
+    private String dfs(Node root) {
+        if (root == null) {
+            return "";
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append(root.val);
+        sb.append('(');
+        sb.append(dfs(root.left));
+        sb.append(')').append('(');
+        sb.append(dfs(root.right));
+        sb.append(')');
+
+        if (map.containsKey(sb.toString())) {
+            set.add(map.get(sb.toString()));
+        } else {
+            map.put(sb.toString(), root);
+        }
+        return sb.toString();
+    }
+
+    private Map<String, Pair<Node, Integer>> seen = new HashMap<>();
+    private Set<Node> repeat = new HashSet<>();
+    int idx = 0;
+
+    public int dfsSeen(Node root) {
+        if (root == null) {
+            return 0;
+        }
+        int[] tri = {root.val, dfsSeen(root.left), dfsSeen(root.right)};
+        String hash = Arrays.toString(tri);
+
+        if (seen.containsKey(hash)) {
+            repeat.add(seen.get(hash).getKey());
+        } else {
+            MutablePair<Node, Integer> pair = new MutablePair<>();
+            pair.setLeft(root);
+            pair.setRight(++idx);
+            seen.put(hash, pair);
+        }
+        return idx;
     }
 
 
