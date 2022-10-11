@@ -21,8 +21,7 @@ public class Solution856 {
         Deque<Integer> deque = new ArrayDeque<>();
         deque.offer(0);
 
-        for (int i = 0; i < chars.length; i++) {
-            char aChar = chars[i];
+        for (char aChar : chars) {
             if (aChar == ')') {
 
                 Integer pollLast = deque.pollLast();
