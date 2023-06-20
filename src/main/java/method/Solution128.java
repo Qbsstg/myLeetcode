@@ -12,7 +12,6 @@ public class Solution128 {
 
         int count = 0;
         Deque<Integer> deque = new ArrayDeque<>();
-
         for (int num : nums) {
             if (deque.isEmpty()) {
                 deque.addLast(num);

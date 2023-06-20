@@ -8,26 +8,29 @@ package method;
 public class Solution45 {
 
 
-    public int jump(int[] nums) {
+    public static int jump(int[] nums) {
 
-        int m = nums[0];
-        int count = 1;
+        int max = 0;
+        int count = 0;
+        int end = 0;
 
-
-        for (int i = 0; i < nums.length; i++) {
-
-            m = nums[i] + i;
-            if (m >= nums.length - 1) {
-                return count;
-            } else {
-                //for (int j = i; j <100; j++) {
-                //    b
+        for (int i = 0; i < nums.length - 1; i++) {
+            max = Math.max(i + nums[i], max);
+            if (end == i) {
+                //if (i != nums.length - 1) {
+                count++;
+                end = max;
                 //}
             }
+
+
         }
 
-        return 1;
+        return count;
+    }
 
+    public static void main(String[] args) {
+        System.out.println(jump(new int[]{1, 2}));
     }
 
 }
