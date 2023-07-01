@@ -22,10 +22,7 @@ public class Solution45 {
                 end = max;
                 //}
             }
-
-
         }
-
         return count;
     }
 
