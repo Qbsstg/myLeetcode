@@ -1,6 +1,7 @@
 package method;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Solution1 {
 
@@ -53,6 +54,9 @@ public class Solution1 {
         int[] nums = {3, 3};
         int target = 6;
         int[] reNums = twoSum1(nums, target);
+
+        List<Integer> list = new ArrayList<>();
+        List<Integer> collect = list.stream().distinct().sorted().collect(Collectors.toList());
 
 
         System.out.println(Arrays.toString(reNums));
