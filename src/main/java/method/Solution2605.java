@@ -13,6 +13,9 @@ public class Solution2605 {
                 result = Math.min(result, value);
             }
         }
+        //Convert.convert(Long.class, "5L".clone()[0]);
         return result;
     }
+
+
 }
