@@ -1,8 +1,6 @@
 package method;
 
 import common.Node;
-import org.apache.commons.lang3.tuple.MutablePair;
-import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.*;
 
@@ -99,27 +97,9 @@ public class Solution652 {
         return sb.toString();
     }
 
-    private Map<String, Pair<Node, Integer>> seen = new HashMap<>();
+
     private Set<Node> repeat = new HashSet<>();
     int idx = 0;
-
-    public int dfsSeen(Node root) {
-        if (root == null) {
-            return 0;
-        }
-        int[] tri = {root.val, dfsSeen(root.left), dfsSeen(root.right)};
-        String hash = Arrays.toString(tri);
-
-        if (seen.containsKey(hash)) {
-            repeat.add(seen.get(hash).getKey());
-        } else {
-            MutablePair<Node, Integer> pair = new MutablePair<>();
-            pair.setLeft(root);
-            pair.setRight(++idx);
-            seen.put(hash, pair);
-        }
-        return idx;
-    }
 
 
 }

@@ -22,6 +22,7 @@ public class Solution1333 {
 
         int distance;
 
+
         public restaurant(int id, int rating, int veganFriendly, int price, int distance) {
             this.id = id;
             this.rating = rating;
