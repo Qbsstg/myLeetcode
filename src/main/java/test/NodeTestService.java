@@ -1,7 +1,7 @@
 package test;
 
 import common.Node;
-import method.Solution687;
+import method.Solution117;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -93,9 +93,10 @@ public class NodeTestService {
         String line3 = "[1,3,2,5,null,null,9,6,null,7]";
         String line5 = "[5,4,5,1,1,5]";
         String line6 = "[1,null,1,1,1,1,1,1]";
-        Node root = stringToNode(line6);
+        String line7 = "[1,2,3,4,5,null,7]";
+        Node root = stringToNode(line7);
 
-        System.out.println(new Solution687().longestUnivaluePath(root));
+        System.out.println(new Solution117().connect(root));
 
         //System.out.println(NodeToString(new Solution998().insertIntoMaxTree(root, 3)));
 
