@@ -1,6 +1,6 @@
 package method;
 
-import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -12,26 +12,18 @@ import java.util.stream.Stream;
  */
 public class Solution2586 {
 
+
+    private final Set<Integer> set = Stream.of(97, 101, 105, 111, 117).collect(Collectors.toCollection(HashSet::new));
+
     public int vowelStrings(String[] words, int left, int right) {
-        Set<String> set = Stream.of("a", "e", "i", "o", "u").collect(Collectors.toSet());
         int count = 0;
-        for (String word : words) {
-            String[] split = word.split("");
-            int length = split.length;
-            for (int i = 0; i < length; i++) {
-                for (int j = i; j < length; j++) {
-                    String[] sub = Arrays.copyOfRange(split, i, j + 1);
-                    String s = String.join("", sub);
-                    if (set.contains(s)) {
-                        count++;
-                    }
-                }
+        for (int i = left; i <= right; i++) {
+            String word = words[i];
+            if (set.contains(word.codePointAt(0)) && set.contains(word.codePointAt(word.length() - 1))) {
+                count++;
             }
         }
         return count;
-
-
-
     }
 
 

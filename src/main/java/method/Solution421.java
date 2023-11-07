@@ -12,14 +12,22 @@ import java.util.Map;
 public class Solution421 {
 
     public static void main(String[] args) {
-        int[] nums = {3, 10, 5, 25, 2, 8};
+        Trie trie = new Trie();
+        trie.insert("apple");
+        //false false true true true false
+        System.out.println(trie.search("apple"));
+        System.out.println(trie.search("app"));
+        System.out.println(trie.startsWith("app"));
+        trie.insert("app");
+        System.out.println(trie.search("app"));
+
     }
 
     public int findMaximumXOR(int[] nums) {
         return 0;
     }
 
-    class Trie {
+    static class Trie {
 
         private TrieNode trieNode;
 
@@ -36,20 +44,39 @@ public class Solution421 {
                 if (c != null) {
                     node = c;
                 } else {
-                    children.put(s, new TrieNode(s));
+                    TrieNode value = new TrieNode(s);
+                    children.put(s, value);
+                    node = value;
                 }
             }
             node.setEndValue(word);
         }
 
         public boolean search(String word) {
+            TrieNode node = getTrieNode(word);
+            if (node == null) return false;
+            return node.getEndValue() != null && node.getEndValue().equals(word);
+        }
+
+        private TrieNode getTrieNode(String word) {
             String[] split = word.split("");
-            return false;
+            TrieNode node = this.trieNode;
+            for (String s : split) {
+                Map<String, TrieNode> children = node.getChildren();
+                TrieNode c = children.get(s);
+                if (c == null) {
+                    return null;
+                } else {
+                    node = c;
+                }
+            }
+            return node;
         }
 
         public boolean startsWith(String prefix) {
-            return false;
+            return getTrieNode(prefix) != null;
         }
     }
+
 
 }

@@ -1,7 +1,5 @@
 package common;
 
-import lombok.Data;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,7 +8,6 @@ import java.util.Map;
  * @date 2022/7/14
  * @desc
  */
-@Data
 public class TrieNode {
 
     private String value;
@@ -37,5 +34,27 @@ public class TrieNode {
         this.children = new HashMap<>();
     }
 
+    public String getValue() {
+        return value;
+    }
 
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public String getEndValue() {
+        return endValue;
+    }
+
+    public void setEndValue(String endValue) {
+        this.endValue = endValue;
+    }
+
+    public Map<String, TrieNode> getChildren() {
+        return children;
+    }
+
+    public void setChildren(Map<String, TrieNode> children) {
+        this.children = children;
+    }
 }
