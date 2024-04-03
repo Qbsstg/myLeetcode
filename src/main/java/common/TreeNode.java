@@ -1,34 +1,38 @@
 package common;
 
-import java.util.List;
-
-/**
- * @author Qbss
- * @date 2022/3/10
- * @desc
- */
 public class TreeNode {
 
     public int val;
-    public List<TreeNode> children;
+
+    public TreeNode left;
+
+    public TreeNode right;
+
+    public TreeNode next;
+
 
     public TreeNode() {
+
     }
 
-    public TreeNode(int _val) {
-        val = _val;
+    public TreeNode(int val) {
+        this.val = val;
     }
 
-    public TreeNode(int _val, List<TreeNode> _children) {
-        val = _val;
-        children = _children;
+    public TreeNode(int val, TreeNode left, TreeNode right, TreeNode next) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+        this.next = next;
     }
 
     @Override
     public String toString() {
-        return "TreeNode{" +
+        return "Node{" +
                 "val=" + val +
-                ", children=" + children +
+                ", left=" + left +
+                ", right=" + right +
+                ", next=" + next +
                 '}';
     }
 }

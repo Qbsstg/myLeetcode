@@ -1,6 +1,6 @@
 package method;
 
-import common.Node;
+import common.TreeNode;
 
 /**
  * @author: Qbss
@@ -9,7 +9,7 @@ import common.Node;
  */
 public class Solution938 {
 
-    public int rangeSumBST(Node root, int low, int high) {
+    public int rangeSumBST(TreeNode root, int low, int high) {
 
         int result = 0;
 
@@ -17,7 +17,7 @@ public class Solution938 {
 
     }
 
-    private int dfs(Node node, int low, int high) {
+    private int dfs(TreeNode node, int low, int high) {
         if (node == null) {
             return 0;
         }

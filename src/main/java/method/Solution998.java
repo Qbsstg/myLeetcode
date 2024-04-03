@@ -1,6 +1,6 @@
 package method;
 
-import common.Node;
+import common.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,14 +13,14 @@ import java.util.List;
 public class Solution998 {
 
 
-    public Node insertIntoMaxTree(Node root, int val) {
+    public TreeNode insertIntoMaxTree(TreeNode root, int val) {
 
         if (root == null) {
-            return new Node(val);
+            return new TreeNode(val);
         }
 
         if (root.val < val) {
-            Node node = new Node(val);
+            TreeNode node = new TreeNode(val);
             node.left = root;
             return node;
         }
@@ -33,7 +33,7 @@ public class Solution998 {
 
     }
 
-    public Node construct(List<Integer> list, int left, int right) {
+    public TreeNode construct(List<Integer> list, int left, int right) {
         if (left > right) {
             return null;
         }
@@ -43,13 +43,13 @@ public class Solution998 {
                 best = i;
             }
         }
-        Node node = new Node(list.get(best));
+        TreeNode node = new TreeNode(list.get(best));
         node.left = construct(list, left, best - 1);
         node.right = construct(list, best + 1, right);
         return node;
     }
 
-    private void dfs(List<Integer> list, Node node) {
+    private void dfs(List<Integer> list, TreeNode node) {
         if (node != null) {
             dfs(list, node.left);
             list.add(node.val);

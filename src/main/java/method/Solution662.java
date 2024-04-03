@@ -1,6 +1,6 @@
 package method;
 
-import common.Node;
+import common.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -11,13 +11,13 @@ import java.util.stream.Collectors;
 public class Solution662 {
 
 
-    public int widthOfBinaryTree(Node root) {
+    public int widthOfBinaryTree(TreeNode root) {
 
         if (root == null) {
             return 0;
         }
 
-        Deque<Node> deque = new ArrayDeque<>();
+        Deque<TreeNode> deque = new ArrayDeque<>();
         deque.offer(root);
 
         if (root.left == null && root.right == null) {
@@ -29,7 +29,7 @@ public class Solution662 {
             int size = deque.size();
             List<Integer> list = new ArrayList<>();
             for (int i = 0; i < size; i++) {
-                Node poll = deque.poll();
+                TreeNode poll = deque.poll();
                 if (poll != null) {
                     if (poll.left != null) {
                         deque.offer(poll.left);

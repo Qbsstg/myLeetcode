@@ -1,6 +1,6 @@
 package method;
 
-import common.Node;
+import common.TreeNode;
 
 import java.util.*;
 
@@ -13,15 +13,15 @@ public class Solution652 {
         System.out.println(stringBuilder);
     }
 
-    public List<Node> findDuplicateSubtrees(Node root) {
-        Map<String, Node> stringIntegerHashMap = new HashMap<>();
-        Set<Node> res = new HashSet<>();
+    public List<TreeNode> findDuplicateSubtrees(TreeNode root) {
+        Map<String, TreeNode> stringIntegerHashMap = new HashMap<>();
+        Set<TreeNode> res = new HashSet<>();
 
         if (root.left == null && root.right == null) {
             return new ArrayList<>();
         }
 
-        Deque<Node> deque = new LinkedList<>();
+        Deque<TreeNode> deque = new LinkedList<>();
         if (root.left != null) {
             deque.offer(root.left);
         }
@@ -30,7 +30,7 @@ public class Solution652 {
         }
 
         while (!deque.isEmpty()) {
-            Node poll = deque.poll();
+            TreeNode poll = deque.poll();
             if (poll != null) {
 
                 String key = NodeToString(poll);
@@ -46,19 +46,19 @@ public class Solution652 {
         return new ArrayList<>(set);
     }
 
-    private String NodeToString(Node root) {
+    private String NodeToString(TreeNode root) {
 
         StringBuilder res = new StringBuilder();
         if (root == null) {
             return res.toString();
         }
 
-        Deque<Node> deque = new ArrayDeque<>();
+        Deque<TreeNode> deque = new ArrayDeque<>();
         deque.offer(root);
         res.append(root.val);
 
         while (!deque.isEmpty()) {
-            Node poll = deque.poll();
+            TreeNode poll = deque.poll();
             if (poll == null) {
                 res.append("null,");
             } else {
@@ -74,10 +74,10 @@ public class Solution652 {
         return res.substring(0, res.length() - 1);
     }
 
-    private Map<String, Node> map = new HashMap<>();
-    private Set<Node> set = new HashSet<>();
+    private Map<String, TreeNode> map = new HashMap<>();
+    private Set<TreeNode> set = new HashSet<>();
 
-    private String dfs(Node root) {
+    private String dfs(TreeNode root) {
         if (root == null) {
             return "";
         }
@@ -98,7 +98,7 @@ public class Solution652 {
     }
 
 
-    private Set<Node> repeat = new HashSet<>();
+    private Set<TreeNode> repeat = new HashSet<>();
     int idx = 0;
 
 

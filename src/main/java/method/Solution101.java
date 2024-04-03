@@ -1,6 +1,6 @@
 package method;
 
-import common.Node;
+import common.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -14,22 +14,22 @@ import java.util.List;
  */
 public class Solution101 {
 
-    public boolean isSymmetric(Node root) {
+    public boolean isSymmetric(TreeNode root) {
 
         if (root == null) {
             return true;
         }
 
-        Deque<Node> deque = new ArrayDeque<>();
+        Deque<TreeNode> deque = new ArrayDeque<>();
         if (root.left != null&&root.right != null){
             deque.offer(root.left);
             deque.offer(root.right);
         }else return root.left == null && root.right == null;
         while (!deque.isEmpty()) {
             int size = deque.size();
-            List<Node> list = new ArrayList<>();
+            List<TreeNode> list = new ArrayList<>();
             for (int i = 0; i < size; i++) {
-                Node poll = deque.poll();
+                TreeNode poll = deque.poll();
                 if (poll.left != null) {
                     deque.offer(poll.left);
                 }
@@ -42,8 +42,8 @@ public class Solution101 {
                 return false;
             }
             for (int i = 0; i < size / 2; i++) {
-                Node left = list.get(i);
-                Node right = list.get(size - i - 1);
+                TreeNode left = list.get(i);
+                TreeNode right = list.get(size - i - 1);
                 if (left.val != right.val) {
                     return false;
                 }

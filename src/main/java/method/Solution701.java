@@ -1,25 +1,25 @@
 package method;
 
-import common.Node;
+import common.TreeNode;
 
 public class Solution701 {
 
-    public Node insertIntoBST(Node root, int val) {
+    public TreeNode insertIntoBST(TreeNode root, int val) {
         if (root == null) {
-            return new Node(val);
+            return new TreeNode(val);
         }
-        Node node = root;
+        TreeNode node = root;
         while (true) {
             if (val > node.val) {
                 if (node.right == null) {
-                    node.right = new Node(val);
+                    node.right = new TreeNode(val);
                     break;
                 } else {
                     node = node.right;
                 }
             } else if (val < node.val) {
                 if (node.left == null) {
-                    node.left = new Node(val);
+                    node.left = new TreeNode(val);
                     break;
                 } else {
                     node = node.left;

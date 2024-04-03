@@ -1,6 +1,6 @@
 package method;
 
-import common.Node;
+import common.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,13 +12,13 @@ import java.util.List;
  */
 public class Solution94 {
 
-    public List<Integer> inorderTraversal(Node root) {
+    public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         deal(root, list);
         return list;
     }
 
-    private void deal(Node root, List<Integer> list) {
+    private void deal(TreeNode root, List<Integer> list) {
         if (root != null) {
             deal(root.left, list);
             list.add(root.val);

@@ -1,6 +1,6 @@
 package test;
 
-import common.Node;
+import common.TreeNode;
 import method.Solution117;
 
 import java.io.IOException;
@@ -15,7 +15,7 @@ import java.util.Queue;
 public class NodeTestService {
 
 
-    public static Node stringToNode(String input) {
+    public static TreeNode stringToNode(String input) {
         input = input.trim();
         input = input.substring(1, input.length() - 1);
         if (input.length() == 0) {
@@ -24,13 +24,13 @@ public class NodeTestService {
 
         String[] parts = input.split(",");
         String item = parts[0];
-        Node root = new Node(Integer.parseInt(item));
-        Queue<Node> nodeQueue = new LinkedList<>();
+        TreeNode root = new TreeNode(Integer.parseInt(item));
+        Queue<TreeNode> nodeQueue = new LinkedList<>();
         nodeQueue.add(root);
 
         int index = 1;
         while (!nodeQueue.isEmpty()) {
-            Node node = nodeQueue.remove();
+            TreeNode node = nodeQueue.remove();
 
             if (index == parts.length) {
                 break;
@@ -40,7 +40,7 @@ public class NodeTestService {
             item = item.trim();
             if (!item.equals("null")) {
                 int leftNumber = Integer.parseInt(item);
-                node.left = new Node(leftNumber);
+                node.left = new TreeNode(leftNumber);
                 nodeQueue.add(node.left);
             }
 
@@ -52,23 +52,23 @@ public class NodeTestService {
             item = item.trim();
             if (!item.equals("null")) {
                 int rightNumber = Integer.parseInt(item);
-                node.right = new Node(rightNumber);
+                node.right = new TreeNode(rightNumber);
                 nodeQueue.add(node.right);
             }
         }
         return root;
     }
 
-    public static String NodeToString(Node root) {
+    public static String NodeToString(TreeNode root) {
         if (root == null) {
             return "[]";
         }
 
         String output = "";
-        Queue<Node> nodeQueue = new LinkedList<>();
+        Queue<TreeNode> nodeQueue = new LinkedList<>();
         nodeQueue.add(root);
         while (!nodeQueue.isEmpty()) {
-            Node node = nodeQueue.remove();
+            TreeNode node = nodeQueue.remove();
 
             if (node == null) {
                 output += "null, ";
@@ -94,7 +94,7 @@ public class NodeTestService {
         String line5 = "[5,4,5,1,1,5]";
         String line6 = "[1,null,1,1,1,1,1,1]";
         String line7 = "[1,2,3,4,5,null,7]";
-        Node root = stringToNode(line7);
+        TreeNode root = stringToNode(line7);
 
         System.out.println(new Solution117().connect(root));
 

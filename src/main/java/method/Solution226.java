@@ -1,6 +1,6 @@
 package method;
 
-import common.Node;
+import common.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -12,7 +12,7 @@ import java.util.Deque;
  */
 public class Solution226 {
 
-    public Node invertTree(Node root) {
+    public TreeNode invertTree(TreeNode root) {
 
         if (root == null) {
             return null;
@@ -22,14 +22,14 @@ public class Solution226 {
             return root;
         }
 
-        Deque<Node> deque = new ArrayDeque<>();
+        Deque<TreeNode> deque = new ArrayDeque<>();
         deque.offer(root);
         while (!deque.isEmpty()) {
             int size = deque.size();
             for (int i = 0; i < size; i++) {
-                Node poll = deque.poll();
+                TreeNode poll = deque.poll();
 
-                Node left = poll.left;
+                TreeNode left = poll.left;
                 poll.left = poll.right;
                 poll.right = left;
 

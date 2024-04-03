@@ -1,14 +1,14 @@
 package method;
 
-import common.Node;
+import common.TreeNode;
 
 public class Solution700 {
 
-    public Node searchBST(Node root, int val) {
+    public TreeNode searchBST(TreeNode root, int val) {
         if (root == null) {
             return null;
         }
-        Node node = root;
+        TreeNode node = root;
         while (true) {
             if (node == null) {
                 return node;

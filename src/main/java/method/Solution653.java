@@ -1,19 +1,19 @@
 package method;
 
-import common.Node;
+import common.TreeNode;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class Solution653 {
 
-    public boolean findTarget(Node root, int k) {
+    public boolean findTarget(TreeNode root, int k) {
 
-        Deque<Node> deque = new ArrayDeque<>();
+        Deque<TreeNode> deque = new ArrayDeque<>();
         deque.offer(root);
         List<Integer> list = new ArrayList<>();
         while (!deque.isEmpty()) {
-            Node poll = deque.poll();
+            TreeNode poll = deque.poll();
             if (poll != null) {
                 list.add(poll.val);
                 if (poll.left != null) {

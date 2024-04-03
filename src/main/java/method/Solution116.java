@@ -1,6 +1,6 @@
 package method;
 
-import common.Node;
+import common.TreeNode;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,16 +12,16 @@ import java.util.Queue;
 
 public class Solution116 {
 
-    public Node connect(Node root) {
+    public TreeNode connect(TreeNode root) {
 
         if (root == null){
-            return new Node();
+            return new TreeNode();
         }
-        List<Node> list = new ArrayList<>();
-        Queue<Node> queue = new LinkedList<>();
+        List<TreeNode> list = new ArrayList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         while (!queue.isEmpty()) {
-            Node poll = queue.poll();
+            TreeNode poll = queue.poll();
             list.add(poll);
             if (poll.left != null && poll.right != null) {
                 queue.offer(poll.left);
@@ -36,9 +36,9 @@ public class Solution116 {
             if (j + start - 1 >= list.size()) {
                 break;
             }
-            Node node = null;
+            TreeNode node = null;
             while (j > 0) {
-                Node node1 = list.get(j + start - 1);
+                TreeNode node1 = list.get(j + start - 1);
                 node1.next = node;
                 node = node1;
                 j--;
@@ -47,7 +47,7 @@ public class Solution116 {
         return root;
     }
 
-    public static Node stringToNode(String input) {
+    public static TreeNode stringToNode(String input) {
         input = input.trim();
         input = input.substring(1, input.length() - 1);
         if (input.length() == 0) {
@@ -56,13 +56,13 @@ public class Solution116 {
 
         String[] parts = input.split(",");
         String item = parts[0];
-        Node root = new Node(Integer.parseInt(item));
-        Queue<Node> nodeQueue = new LinkedList<>();
+        TreeNode root = new TreeNode(Integer.parseInt(item));
+        Queue<TreeNode> nodeQueue = new LinkedList<>();
         nodeQueue.add(root);
 
         int index = 1;
         while (!nodeQueue.isEmpty()) {
-            Node node = nodeQueue.remove();
+            TreeNode node = nodeQueue.remove();
 
             if (index == parts.length) {
                 break;
@@ -72,7 +72,7 @@ public class Solution116 {
             item = item.trim();
             if (!item.equals("null")) {
                 int leftNumber = Integer.parseInt(item);
-                node.left = new Node(leftNumber);
+                node.left = new TreeNode(leftNumber);
                 nodeQueue.add(node.left);
             }
 
@@ -84,23 +84,23 @@ public class Solution116 {
             item = item.trim();
             if (!item.equals("null")) {
                 int rightNumber = Integer.parseInt(item);
-                node.right = new Node(rightNumber);
+                node.right = new TreeNode(rightNumber);
                 nodeQueue.add(node.right);
             }
         }
         return root;
     }
 
-    public static String NodeToString(Node root) {
+    public static String NodeToString(TreeNode root) {
         if (root == null) {
             return "[]";
         }
 
         String output = "";
-        Queue<Node> nodeQueue = new LinkedList<>();
+        Queue<TreeNode> nodeQueue = new LinkedList<>();
         nodeQueue.add(root);
         while (!nodeQueue.isEmpty()) {
-            Node node = nodeQueue.remove();
+            TreeNode node = nodeQueue.remove();
 
             if (node == null) {
                 output += "null, ";
@@ -118,9 +118,9 @@ public class Solution116 {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         String line;
         while ((line = in.readLine()) != null) {
-            Node root = stringToNode(line);
+            TreeNode root = stringToNode(line);
 
-            Node ret = new Solution116().connect(root);
+            TreeNode ret = new Solution116().connect(root);
 
             String out = NodeToString(ret);
 

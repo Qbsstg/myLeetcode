@@ -1,15 +1,15 @@
 package method;
 
-import common.Node;
+import common.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
 
 public class Solution1161 {
 
-    public int maxLevelSum(Node root) {
+    public int maxLevelSum(TreeNode root) {
 
-        Queue<Node> queue = new ArrayDeque<>();
+        Queue<TreeNode> queue = new ArrayDeque<>();
         queue.offer(root);
 
         int count = 0;
@@ -21,7 +21,7 @@ public class Solution1161 {
             count++;
             int sum = 0;
             for (int i = 0; i < size; i++) {
-                Node poll = queue.poll();
+                TreeNode poll = queue.poll();
                 sum += poll.val;
                 if (poll.left != null) {
                     queue.offer(poll.left);

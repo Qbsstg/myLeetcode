@@ -1,7 +1,7 @@
 package method;
 
 
-import common.Node;
+import common.TreeNode;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,7 +17,7 @@ import java.util.Queue;
 public class Solution814 {
 
 
-    public Node pruneTree(Node root) {
+    public TreeNode pruneTree(TreeNode root) {
 
         if (root == null) {
             return root;
@@ -29,7 +29,7 @@ public class Solution814 {
         return null;
     }
 
-    private boolean checkZero(Node node) {
+    private boolean checkZero(TreeNode node) {
         if (node != null) {
             if (node.val == 1) {
                 return true;
@@ -40,7 +40,7 @@ public class Solution814 {
         return false;
     }
 
-    public static Node stringToTreeNode(String input) {
+    public static TreeNode stringToTreeNode(String input) {
         input = input.trim();
         input = input.substring(1, input.length() - 1);
         if (input.length() == 0) {
@@ -49,13 +49,13 @@ public class Solution814 {
 
         String[] parts = input.split(",");
         String item = parts[0];
-        Node root = new Node(Integer.parseInt(item));
-        Queue<Node> nodeQueue = new LinkedList<>();
+        TreeNode root = new TreeNode(Integer.parseInt(item));
+        Queue<TreeNode> nodeQueue = new LinkedList<>();
         nodeQueue.add(root);
 
         int index = 1;
         while (!nodeQueue.isEmpty()) {
-            Node node = nodeQueue.remove();
+            TreeNode node = nodeQueue.remove();
 
             if (index == parts.length) {
                 break;
@@ -65,7 +65,7 @@ public class Solution814 {
             item = item.trim();
             if (!item.equals("null")) {
                 int leftNumber = Integer.parseInt(item);
-                node.left = new Node(leftNumber);
+                node.left = new TreeNode(leftNumber);
                 nodeQueue.add(node.left);
             }
 
@@ -77,23 +77,23 @@ public class Solution814 {
             item = item.trim();
             if (!item.equals("null")) {
                 int rightNumber = Integer.parseInt(item);
-                node.right = new Node(rightNumber);
+                node.right = new TreeNode(rightNumber);
                 nodeQueue.add(node.right);
             }
         }
         return root;
     }
 
-    public static String treeNodeToString(Node root) {
+    public static String treeNodeToString(TreeNode root) {
         if (root == null) {
             return "[]";
         }
 
         String output = "";
-        Queue<Node> nodeQueue = new LinkedList<>();
+        Queue<TreeNode> nodeQueue = new LinkedList<>();
         nodeQueue.add(root);
         while (!nodeQueue.isEmpty()) {
-            Node node = nodeQueue.remove();
+            TreeNode node = nodeQueue.remove();
 
             if (node == null) {
                 output += "null, ";
@@ -111,9 +111,9 @@ public class Solution814 {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         String line;
         while ((line = in.readLine()) != null) {
-            Node root = stringToTreeNode(line);
+            TreeNode root = stringToTreeNode(line);
 
-            Node ret = new Solution814().pruneTree(root);
+            TreeNode ret = new Solution814().pruneTree(root);
 
             String out = treeNodeToString(ret);
 

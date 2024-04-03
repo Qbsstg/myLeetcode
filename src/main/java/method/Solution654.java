@@ -1,22 +1,22 @@
 package method;
 
-import common.Node;
+import common.TreeNode;
 
 import java.util.Arrays;
 
 public class Solution654 {
 
 
-    public static Node constructMaximumBinaryTree(int[] nums) {
+    public static TreeNode constructMaximumBinaryTree(int[] nums) {
 
         return deal(nums);
     }
 
-    private static Node deal(int[] nums) {
-        Node node = null;
+    private static TreeNode deal(int[] nums) {
+        TreeNode node = null;
         if (nums.length > 0) {
             int[] dealMax = dealMax(nums);
-            node = new Node(dealMax[1]);
+            node = new TreeNode(dealMax[1]);
             int[][] ints = splitNums(nums, dealMax);
             if (ints[0].length > 0) {
                 node.left = deal(ints[0]);

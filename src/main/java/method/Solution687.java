@@ -1,6 +1,6 @@
 package method;
 
-import common.Node;
+import common.TreeNode;
 
 import java.util.*;
 
@@ -11,7 +11,7 @@ import java.util.*;
  */
 public class Solution687 {
 
-    public int longestUnivaluePath(Node root) {
+    public int longestUnivaluePath(TreeNode root) {
 
         if (root == null||(root.left == null && root.right == null)) {
             return 0;
@@ -19,10 +19,10 @@ public class Solution687 {
 
         int res = 0;
 
-        Deque<Node> deque = new ArrayDeque<>();
+        Deque<TreeNode> deque = new ArrayDeque<>();
         deque.offer(root);
         while (!deque.isEmpty()) {
-            Node poll = deque.poll();
+            TreeNode poll = deque.poll();
             if (poll != null) {
                 if (poll.val != 5555){
                     int leftCount = count(poll.left, poll.val);
@@ -44,7 +44,7 @@ public class Solution687 {
     }
 
 
-    private int count(Node node, int val) {
+    private int count(TreeNode node, int val) {
         if (node != null && node.val == val&&node.val != 5555) {
             node.val = 5555;
             return Math.max(count(node.left, val), count(node.right, val)) + 1;

@@ -1,19 +1,19 @@
 package contest.weekly.w307;
 
-import common.Node;
+import common.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
 
 public class Solution3 {
 
-    public int amountOfTime(Node root, int start) {
+    public int amountOfTime(TreeNode root, int start) {
 
         if (root == null) {
             return 0;
         }
 
-        Deque<Node> deque = new ArrayDeque<>();
+        Deque<TreeNode> deque = new ArrayDeque<>();
 
         if (root.val == start) {
             if (root.left == null && root.right == null) {
@@ -25,7 +25,7 @@ public class Solution3 {
                 int size = deque.size();
                 depth++;
                 for (int i = 0; i < size; i++) {
-                    Node poll = deque.poll();
+                    TreeNode poll = deque.poll();
                     if (poll != null) {
                         if (poll.left != null) {
                             deque.offer(poll.left);
@@ -48,7 +48,7 @@ public class Solution3 {
                     int size = deque.size();
                     leftDepth++;
                     for (int i = 0; i < size; i++) {
-                        Node poll = deque.poll();
+                        TreeNode poll = deque.poll();
                         if (poll != null) {
                             if (poll.val == start) {
                                 index = leftDepth;
@@ -72,7 +72,7 @@ public class Solution3 {
                     int size = deque.size();
                     rightDepth++;
                     for (int i = 0; i < size; i++) {
-                        Node poll = deque.poll();
+                        TreeNode poll = deque.poll();
                         if (poll != null) {
                             if (poll.val == start) {
                                 index = rightDepth;

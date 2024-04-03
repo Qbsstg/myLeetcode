@@ -1,6 +1,6 @@
 package method;
 
-import common.Node;
+import common.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -12,13 +12,13 @@ import java.util.Deque;
  */
 public class Solution623 {
 
-    public Node addOneRow(Node root, int val, int depth) {
+    public TreeNode addOneRow(TreeNode root, int val, int depth) {
 
-        Deque<Node> deque = new ArrayDeque<>();
+        Deque<TreeNode> deque = new ArrayDeque<>();
         deque.offer(root);
 
         if (depth == 1) {
-            Node node = new Node(val);
+            TreeNode node = new TreeNode(val);
             node.left = root;
             return node;
         }
@@ -28,28 +28,28 @@ public class Solution623 {
             depth--;
             if (depth == 1) {
                 for (int i = 0; i < size; i++) {
-                    Node poll = deque.poll();
+                    TreeNode poll = deque.poll();
                     if (poll.left != null) {
-                        Node node = new Node(val);
+                        TreeNode node = new TreeNode(val);
                         node.left = poll.left;
                         poll.left = node;
                     } else {
-                        Node node = new Node(val);
+                        TreeNode node = new TreeNode(val);
                         poll.left = node;
                     }
                     if (poll.right != null) {
-                        Node node = new Node(val);
+                        TreeNode node = new TreeNode(val);
                         node.right = poll.right;
                         poll.right = node;
                     } else {
-                        Node node = new Node(val);
+                        TreeNode node = new TreeNode(val);
                         poll.right = node;
                     }
                 }
                 break;
             } else {
                 for (int i = 0; i < size; i++) {
-                    Node poll = deque.poll();
+                    TreeNode poll = deque.poll();
                     if (poll.left != null) {
                         deque.offer(poll.left);
                     }

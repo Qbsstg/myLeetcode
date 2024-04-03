@@ -1,6 +1,6 @@
 package method;
 
-import common.Node;
+import common.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class Solution919 {
 
-    public Node test(Node node) {
+    public TreeNode test(TreeNode node) {
         CBTInserter cbtInserter = new CBTInserter(node);
         System.out.println(cbtInserter.insert(3));
         System.out.println(cbtInserter.insert(4));
@@ -24,22 +24,22 @@ public class Solution919 {
 
     static class CBTInserter {
 
-        private Node root;
+        private TreeNode root;
 
-        public CBTInserter(Node root) {
+        public CBTInserter(TreeNode root) {
             this.root = root;
         }
 
         public int insert(int val) {
 
-            Deque<Node> deque = new ArrayDeque<>();
+            Deque<TreeNode> deque = new ArrayDeque<>();
             deque.offer(this.root);
-            List<Node> nodeList = new ArrayList<>();
-            nodeList.add(new Node(0));
+            List<TreeNode> nodeList = new ArrayList<>();
+            nodeList.add(new TreeNode(0));
             nodeList.add(this.root);
 
             while (!deque.isEmpty()) {
-                Node poll = deque.poll();
+                TreeNode poll = deque.poll();
                 if (poll.left != null) {
                     deque.offer(poll.left);
                     nodeList.add(poll.left);
@@ -52,7 +52,7 @@ public class Solution919 {
             //当list长度为1时
             int size = nodeList.size();
             if (size == 2) {
-                this.root.left = new Node(val);
+                this.root.left = new TreeNode(val);
                 return this.root.val;
             }
 
@@ -60,13 +60,13 @@ public class Solution919 {
                 size = size - 1;
                 if (size % 2 == 0) {
                     int i = size / 2;
-                    Node node = nodeList.get(i);
-                    node.right = new Node(val);
+                    TreeNode node = nodeList.get(i);
+                    node.right = new TreeNode(val);
                     return node.val;
                 } else {
                     int i = (size + 1) / 2;
-                    Node node = nodeList.get(i);
-                    node.left = new Node(val);
+                    TreeNode node = nodeList.get(i);
+                    node.left = new TreeNode(val);
                     return node.val;
                 }
             }
@@ -75,7 +75,7 @@ public class Solution919 {
 
         }
 
-        public Node get_root() {
+        public TreeNode get_root() {
             return root;
         }
     }

@@ -1,6 +1,6 @@
 package study.backtracking;
 
-import common.Node;
+import common.TreeNode;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -20,13 +20,13 @@ public class Example1 {
     List<Integer> path = new ArrayList<>();
 
     void dealListToNode(List<Integer> list) {
-        Node node;
+        TreeNode node;
         if (list.isEmpty()) {
             return;
         }
-        node = new Node(list.get(0));
+        node = new TreeNode(list.get(0));
         for (int i = 1; i < list.size(); i++) {
-            node.next = new Node(list.get(i));
+            node.next = new TreeNode(list.get(i));
         }
     }
 

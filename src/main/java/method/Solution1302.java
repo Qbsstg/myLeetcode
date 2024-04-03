@@ -1,6 +1,6 @@
 package method;
 
-import common.Node;
+import common.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -12,14 +12,14 @@ import java.util.Deque;
  */
 public class Solution1302 {
 
-    public int deepestLeavesSum(Node root) {
+    public int deepestLeavesSum(TreeNode root) {
 
         if (root == null) {
             return 0;
         }
 
         int res = 0;
-        Deque<Node> deque = new ArrayDeque<>();
+        Deque<TreeNode> deque = new ArrayDeque<>();
         deque.offer(root);
 
         while (!deque.isEmpty()) {
@@ -27,7 +27,7 @@ public class Solution1302 {
             int size = deque.size();
             int count = 0;
             for (int i = 0; i < size; i++) {
-                Node poll = deque.poll();
+                TreeNode poll = deque.poll();
                 if (poll != null) {
                     count += poll.val;
                     if (poll.left != null) {

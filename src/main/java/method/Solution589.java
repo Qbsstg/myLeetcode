@@ -1,6 +1,6 @@
 package method;
 
-import common.TreeNode;
+import common.Node;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ public class Solution589 {
     }
 
 
-    public List<Integer> preorder(TreeNode root) {
+    public List<Integer> preorder(Node root) {
 
 
         List<Integer> res = new ArrayList<>();
@@ -28,7 +28,7 @@ public class Solution589 {
 
     }
 
-    private static void helper(TreeNode root, List<Integer> res) {
+    private static void helper(Node root, List<Integer> res) {
 
         if (root == null) {
             return;

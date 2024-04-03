@@ -1,6 +1,6 @@
 package method;
 
-import common.Node;
+import common.TreeNode;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,11 +12,11 @@ import java.util.Set;
  */
 public class Solution112 {
 
-    public void check(Node root){
+    public void check(TreeNode root){
         System.out.println(hasPathSum(root, 0));
     }
 
-    public boolean hasPathSum(Node root, int targetSum) {
+    public boolean hasPathSum(TreeNode root, int targetSum) {
         if (root == null) {
             return false;
         }
@@ -27,7 +27,7 @@ public class Solution112 {
         return set.contains(targetSum);
     }
 
-    private void dfs(int count, Node node, Set<Integer> ans) {
+    private void dfs(int count, TreeNode node, Set<Integer> ans) {
         if (node == null) {
             return;
         }

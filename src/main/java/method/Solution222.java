@@ -1,6 +1,6 @@
 package method;
 
-import common.Node;
+import common.TreeNode;
 
 /**
  * @author Qbss
@@ -10,12 +10,12 @@ import common.Node;
 public class Solution222 {
 
 
-    public int countNodes(Node root) {
+    public int countNodes(TreeNode root) {
         return dfs(root);
     }
 
 
-    public int dfs(Node node) {
+    public int dfs(TreeNode node) {
         if (node == null) {
             return 0;
         } else {

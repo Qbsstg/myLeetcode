@@ -1,6 +1,6 @@
 package method;
 
-import common.Node;
+import common.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -19,9 +19,9 @@ public class Solution655 {
 
     private int h;
 
-    public List<List<String>> printTree(Node root) {
+    public List<List<String>> printTree(TreeNode root) {
 
-        Deque<Node> deque = new ArrayDeque<>();
+        Deque<TreeNode> deque = new ArrayDeque<>();
         deque.offer(root);
 
         int depth = 0;
@@ -30,7 +30,7 @@ public class Solution655 {
             depth++;
             int size = deque.size();
             for (int i = 0; i < size; i++) {
-                Node poll = deque.poll();
+                TreeNode poll = deque.poll();
                 if (poll != null) {
                     if (poll.left != null) {
                         deque.offer(poll.left);
@@ -59,7 +59,7 @@ public class Solution655 {
         return res;
     }
 
-    private void dfs(Node root, int r, int c) {
+    private void dfs(TreeNode root, int r, int c) {
         if (root != null) {
             res.get(r).set(c, String.valueOf(root.val));
             if (root.left != null) {

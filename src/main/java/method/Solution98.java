@@ -1,6 +1,6 @@
 package method;
 
-import common.Node;
+import common.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
 public class Solution98 {
 
 
-    public boolean isValidBST(Node root) {
+    public boolean isValidBST(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         deal(root, list);
         if (list.size() == 1) {
@@ -22,7 +22,7 @@ public class Solution98 {
         return true;
     }
 
-    private void deal(Node root, List<Integer> list) {
+    private void deal(TreeNode root, List<Integer> list) {
         if (root != null) {
             deal(root.left, list);
             list.add(root.val);

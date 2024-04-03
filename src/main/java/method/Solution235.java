@@ -1,6 +1,6 @@
 package method;
 
-import common.Node;
+import common.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -8,15 +8,15 @@ import java.util.Deque;
 public class Solution235 {
 
 
-    public Node lowestCommonAncestor(Node root, Node p, Node q) {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 
         int pValue = p.val;
         int qValue = q.val;
 
-        Deque<Node> deque = new ArrayDeque<>();
+        Deque<TreeNode> deque = new ArrayDeque<>();
         deque.offer(root);
         while (!deque.isEmpty()) {
-            Node poll = deque.poll();
+            TreeNode poll = deque.poll();
             if (poll != null) {
                 if (pValue > poll.val) {
                     if (qValue > poll.val) {
