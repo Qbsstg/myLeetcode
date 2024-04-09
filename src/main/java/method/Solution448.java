@@ -41,5 +41,25 @@ public class Solution448 {
 
     }
 
+    public static List<Integer> findDisappearedNumbers1(int[] nums) {
+
+        int length = nums.length;
+        int[] ans = new int[length + 1];
+
+        for (int num : nums) {
+            if (ans[num] == 0) {
+                ans[num] = 1;
+            }
+        }
+
+        List<Integer> result = new ArrayList<>();
+        for (int i = 1; i < ans.length; i++) {
+            if (ans[i] == 0) {
+                result.add(i);
+            }
+        }
+        return result;
+    }
+
 
 }
