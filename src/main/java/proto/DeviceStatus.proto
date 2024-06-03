@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+message DeviceStatus {
+  uint32 sync = 1; // 报文头：5AA5
+  uint32 packet_length = 2; // 报文长度
+  string cmd_id = 3; // 状态监测装置ID（17位编码）
+  uint32 frame_type = 4; // 帧类型
+  uint32 packet_type = 5; // 报文类型
+  uint32 frame_no = 6; // 帧序列号（无符号整数）
+  uint32 data_version = 7; // 数据版本，暂定为1，扩展字段
+
+  // 制造商信息
+  uint32 manufacturer_length = 8; // 制造商字节长度
+  string manufacturer = 9; // 制造商，utf-8编码，变长
+
+  // 型号信息
+  uint32 model_length = 10; // 型号字节长度
+  string model = 11; // 型号，变长，utf-8编码
+
+  uint32 manuf_date = 12; // 出厂日期世纪秒
+
+  // 设备序列号信息
+  uint32 serial_no_length = 13; // 设备序列号长度
+  string serial_no = 14; // 设备序列号变长，utf-8
+
+  uint32 channel_no = 15; // 子设备（摄像头）通道号，1~255，无符号整数
+
+  // 设备功能支持情况
+  uint32 has_ptz = 16; // 云台操作无符号整数，0：无PTZ功能 1：有PTZ功能
+  uint32 has_gps = 17; // 坐标位置订阅上报和查询无符号整数，0 不支持 1 支持
+  uint32 has_talk = 18; // 语音对讲无符号整数，0 不支持 1 支持
+  uint32 has_ai = 19; // 前端智能识别无符号整数，0 不支持 1 支持
+  uint32 has_his_video = 20; // 历史视频播放无符号整数，0 不支持 1 支持
+  uint32 has_night_view = 21; // 夜视功能无符号整数，0 不支持 1 支持
+  uint32 has_infrared = 22; // 红外测温功能无符号整数，0 不支持 1 支持
+
+  uint16 crc16 = 23; // 校验位
+  uint32 end = 24; // 报文尾：0x96
+}
