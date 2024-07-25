@@ -45,13 +45,11 @@ public class t1 {
 
     private static final ReentrantLock REENTRANT_LOCK = new ReentrantLock();
 
-    private static final Condition A = REENTRANT_LOCK.newCondition();
-    private static final Condition B = REENTRANT_LOCK.newCondition();
-    private static final Condition C = REENTRANT_LOCK.newCondition();
-
     class outThread2 extends Thread {
 
         private int id;
+
+        private final Condition cdn = REENTRANT_LOCK.newCondition();
 
         public outThread2(int id) {
             this.id = id;
@@ -61,9 +59,18 @@ public class t1 {
         public void run() {
             while (count <= 20) {
                 REENTRANT_LOCK.lock();
-                if (count%n == id){
-                    System.out.println("当前执行线程：" + id + "，数值:" + count);
-                    count++;
+                try {
+                 if (count % n == id){
+                     System.out.println("当前执行线程：" + id + "，数值:" + count);
+                     count++;
+                     cdn.signalAll();
+                 }else {
+                    cdn.await();
+                 }
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                } finally {
+                    REENTRANT_LOCK.unlock();
                 }
             }
         }
@@ -75,9 +82,15 @@ public class t1 {
         }
     }
 
+    public void test2() {
+        for (int i = 0; i < 3; i++) {
+            new outThread2(i).start();
+        }
+    }
+
     public static void main(String[] args) {
         t1 t1 = new t1();
-        t1.test1();
+        t1.test2();
     }
 
 
